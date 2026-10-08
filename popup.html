@@ -38,14 +38,21 @@
   button.primary:hover { background: var(--red-dark); }
   input[type="number"] { width: 4.5em; font: inherit; padding: 4px 6px; border-radius: 6px;
                          border: 1px solid var(--line); background: var(--bg); color: var(--text); }
-  input[type="range"] { width: 100%; accent-color: var(--red); }
+  input[type="range"], input[type="checkbox"] { accent-color: var(--red); }
+  input[type="range"] { width: 100%; }
+  input[type="text"] { flex: 1; min-width: 0; font: inherit; padding: 3px 6px; border-radius: 6px;
+                       border: 1px solid var(--line); background: var(--bg); color: var(--text); }
+
+  .marks { display: flex; align-items: center; gap: 6px; }
+  .marks span { min-width: 2.8em; font-variant-numeric: tabular-nums; }
+  .marks button, .voice button { padding: 4px 8px; font-size: 12px; }
 
   #voices { display: grid; gap: 6px; }
   .voice { display: grid; gap: 6px; padding: 8px 10px; border-radius: 10px; background: var(--card); border: 2px solid transparent; }
   .voice.picked { border-color: var(--red); }
+  .voice .top { display: flex; align-items: center; gap: 6px; }
+  .voice .top .muted { white-space: nowrap; }
   .voice audio { width: 100%; height: 28px; }
-  .voice button { padding: 5px 10px; font-size: 12px; }
-  .voice.picked button { background: var(--red); border-color: var(--red); color: #fff; opacity: 1; }
 
   footer { font-size: 11px; color: var(--muted); }
 </style>
@@ -59,10 +66,14 @@
 
   <section>
     <h2 data-i18n="enrollHeading"></h2>
-    <div class="row">
-      <button id="enroll" data-i18n="enrollBtn"></button>
-      <label class="muted"><input id="sec" type="number" value="20" min="5" max="120"> <span data-i18n="sec"></span></label>
+    <div class="marks">
+      <button id="markStart" data-i18n="markStart"></button><span id="ms" class="muted"></span>
+      <button id="markEnd" data-i18n="markEnd"></button><span id="me" class="muted"></span>
+      <button id="clearMarks" data-i18n-title="clearMarks">✕</button>
     </div>
+    <label class="muted"><span data-i18n="noEnd"></span> <input id="sec" type="number" value="20" min="5" max="120"> <span data-i18n="sec"></span></label>
+    <button id="enroll" data-i18n="enrollBtn"></button>
+    <label class="muted"><input id="multi" type="checkbox"> <span data-i18n="multi"></span></label>
     <div id="voices"></div>
   </section>
 

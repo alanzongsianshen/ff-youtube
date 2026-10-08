@@ -18,7 +18,7 @@
     "message": "1 · Enroll a voice"
   },
   "enrollBtn": {
-    "message": "Enroll from this tab"
+    "message": "Enroll voices from range"
   },
   "sec": {
     "message": "sec"
@@ -36,13 +36,10 @@
     "message": "Stop"
   },
   "footer": {
-    "message": "Enroll records the tab and splits it into voices; play each sample and pick the one to skip. Voice and threshold changes apply on next Start."
+    "message": "Mark a range where the person speaks (no marks = from now). Enroll replays it and splits it into voices; play each sample, name it, and tick the one(s) to skip. Changes apply on next Start."
   },
   "speechSeconds": {
     "message": "$1s of speech"
-  },
-  "skippingThis": {
-    "message": "✓ Skipping this voice"
   },
   "skipThis": {
     "message": "Skip this voice"
@@ -53,17 +50,14 @@
   "stStopped": {
     "message": "stopped"
   },
-  "stEnrollFirst": {
-    "message": "Enroll a voice first"
-  },
   "stReload": {
-    "message": "Reload the YouTube tab (content script missing)"
+    "message": "Reload the YouTube tab"
   },
   "stLoading": {
     "message": "Loading model…"
   },
   "stRecording": {
-    "message": "Recording $1s…"
+    "message": "Recording $1–$2…"
   },
   "stQuiet": {
     "message": "Listening (quiet)"
@@ -72,9 +66,48 @@
     "message": "Listening, score $1"
   },
   "stFound": {
-    "message": "Found $1 voice(s), pick one to skip"
+    "message": "Found $1 voice(s), tick the one(s) to skip"
   },
   "stError": {
     "message": "Error: $1"
+  },
+  "markStart": {
+    "message": "Mark start"
+  },
+  "markEnd": {
+    "message": "Mark end"
+  },
+  "clearMarks": {
+    "message": "Clear marks"
+  },
+  "noEnd": {
+    "message": "No end mark: record"
+  },
+  "multi": {
+    "message": "Skip multiple voices"
+  },
+  "namePh": {
+    "message": "name"
+  },
+  "deleteVoice": {
+    "message": "Delete voice"
+  },
+  "stTickFirst": {
+    "message": "Tick a voice to skip first"
+  },
+  "stNewVideo": {
+    "message": "Listening on new video"
+  },
+  "stCancelled": {
+    "message": "Enrollment cancelled: video changed"
+  },
+  "stNoVideo": {
+    "message": "No video on this tab"
+  },
+  "stNoYT": {
+    "message": "No YouTube video here (reload the tab?)"
+  },
+  "stRange": {
+    "message": "Range must be at least 3s, with end after start"
   }
 }
