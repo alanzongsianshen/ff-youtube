@@ -81,6 +81,12 @@
     <h2 data-i18n="skipHeading"></h2>
     <label class="row"><span data-i18n="threshold"></span><b id="thrv"></b></label>
     <input id="thr" type="range" min="0.5" max="0.99" step="0.01">
+    <label class="row"><span data-i18n="skipStyle"></span>
+      <select id="style"><option value="jump" data-i18n="styleJump"></option><option value="fast8" data-i18n="styleFast8"></option><option value="fast" data-i18n="styleFast"></option></select>
+    </label>
+    <label class="row muted" id="jumpRow"><span data-i18n="jumpBy"></span>
+      <span><input id="jump" type="number" value="10" min="3" max="60"> <span data-i18n="sec"></span></span>
+    </label>
     <div class="row">
       <button id="start" class="primary" data-i18n="start"></button>
       <button id="stop" data-i18n="stop"></button>

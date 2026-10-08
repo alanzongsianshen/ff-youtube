@@ -37,7 +37,7 @@ const loadModel = () => (modelP ??= (async () => {
   return async (x) => (await model(await processor(x))).embeddings.data;
 })());
 
-async function start({ cmd, streamId, tabId, targets, threshold, range }) {
+async function start({ cmd, streamId, tabId, targets, threshold, range, style, jump }) {
   session?.stop();
   const stream = await navigator.mediaDevices.getUserMedia({
     audio: { mandatory: { chromeMediaSource: 'tab', chromeMediaSourceId: streamId } },
@@ -99,7 +99,8 @@ async function start({ cmd, streamId, tabId, targets, threshold, range }) {
 
   const sk = createSkipper({
     embed, targets, threshold,
-    ff: (on) => send({ type: 'ff', tabId, on }),
+    burstMs: style === 'jump' ? 500 : 1500, // jump: just let the seek settle before listening again
+    ff: (on) => send({ type: 'ff', tabId, on, style, jump }),
     onError: (e) => send({ type: 'status', text: `model error: ${e.message ?? e}` }),
     onScore: (s) => send({ type: 'status', text: s == null ? 'listening (quiet)' : `listening, score ${s.toFixed(2)}` }),
   });

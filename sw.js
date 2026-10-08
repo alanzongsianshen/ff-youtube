@@ -32,7 +32,7 @@ async function handle(m, sender) {
   switch (m.cmd ?? m.type) {
     case 'enroll':
     case 'start': {
-      const { voices = [], threshold = 0.85 } = await chrome.storage.local.get(['voices', 'threshold']);
+      const { voices = [], threshold = 0.85, style = 'jump', jump = 10 } = await chrome.storage.local.get(['voices', 'threshold', 'style', 'jump']);
       const targets = voices.filter((v) => v.skip).map((v) => v.embedding);
       if (m.cmd === 'start' && !targets.length) return status('tick a voice to skip first');
       if (!(await chrome.offscreen.hasDocument())) {
@@ -43,7 +43,7 @@ async function handle(m, sender) {
         });
       }
       await chrome.storage.session.set({ tabId: m.tabId, mode: m.cmd });
-      chrome.runtime.sendMessage({ ...m, to: 'offscreen', targets, threshold });
+      chrome.runtime.sendMessage({ ...m, to: 'offscreen', targets, threshold, style, jump });
       return chrome.action.setBadgeText({ text: m.cmd === 'start' ? 'ON' : 'REC' });
     }
     case 'stop':

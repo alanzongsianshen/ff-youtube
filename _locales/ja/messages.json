@@ -109,5 +109,20 @@
   },
   "stRange": {
     "message": "範囲は 3 秒以上で、終了は開始より後にしてください"
+  },
+  "skipStyle": {
+    "message": "スキップ方法"
+  },
+  "styleJump": {
+    "message": "ジャンプ"
+  },
+  "styleFast": {
+    "message": "16倍速早送り"
+  },
+  "jumpBy": {
+    "message": "ジャンプ秒数"
+  },
+  "styleFast8": {
+    "message": "8倍速早送り"
   }
 }

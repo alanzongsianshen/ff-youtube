@@ -109,5 +109,20 @@
   },
   "stRange": {
     "message": "El rango debe durar al menos 3 s y terminar después de empezar"
+  },
+  "skipStyle": {
+    "message": "Modo de salto"
+  },
+  "styleJump": {
+    "message": "Saltar adelante"
+  },
+  "styleFast": {
+    "message": "Avance rápido 16×"
+  },
+  "jumpBy": {
+    "message": "Saltar"
+  },
+  "styleFast8": {
+    "message": "Avance rápido 8×"
   }
 }

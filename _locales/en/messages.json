@@ -109,5 +109,20 @@
   },
   "stRange": {
     "message": "Range must be at least 3s, with end after start"
+  },
+  "skipStyle": {
+    "message": "Skip style"
+  },
+  "styleJump": {
+    "message": "Jump ahead"
+  },
+  "styleFast": {
+    "message": "Fast-forward 16×"
+  },
+  "jumpBy": {
+    "message": "Jump by"
+  },
+  "styleFast8": {
+    "message": "Fast-forward 8×"
   }
 }

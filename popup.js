@@ -33,7 +33,8 @@ const fail = (msg) => {
 };
 
 async function show() {
-  const { voices = [], threshold = 0.85, multi = false } = await chrome.storage.local.get(['voices', 'threshold', 'multi']);
+  const { voices = [], threshold = 0.85, multi = false, style = 'jump', jump = 10 } =
+    await chrome.storage.local.get(['voices', 'threshold', 'multi', 'style', 'jump']);
   const { status = 'idle', marks = {} } = await chrome.storage.session.get(['status', 'marks']);
   const ticked = voices.filter((v) => v.skip).map(voiceName);
   $('voice').textContent = ticked.length ? ticked.join(', ') : t('none');
@@ -42,6 +43,9 @@ async function show() {
   $('thr').value = threshold;
   $('thrv').textContent = (+threshold).toFixed(2);
   $('multi').checked = multi;
+  $('style').value = style;
+  $('jump').value = jump;
+  $('jumpRow').hidden = style !== 'jump';
   $('ms').textContent = fmt(marks.start);
   $('me').textContent = fmt(marks.end);
 }
@@ -70,6 +74,8 @@ chrome.storage.onChanged.addListener((changes) => {
 });
 
 $('thr').oninput = () => chrome.storage.local.set({ threshold: +$('thr').value });
+$('style').onchange = () => chrome.storage.local.set({ style: $('style').value });
+$('jump').onchange = () => chrome.storage.local.set({ jump: Math.min(60, Math.max(3, +$('jump').value || 10)) });
 $('multi').onchange = () => toSw({ cmd: 'multi', on: $('multi').checked });
 
 // The popup closes when the user clicks the page; marks live in session storage so they survive that.

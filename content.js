@@ -58,8 +58,10 @@ chrome.runtime.onMessage.addListener((m, _, reply) => {
   }
   if (m.type === 'ff') {
     if (!m.on) return restore();
+    // ponytail: fixed-step jump, may overshoot into the next speaker; a scanned timeline could jump to the segment end.
+    if (m.style === 'jump') return void (v.currentTime = Math.min(v.currentTime + m.jump, v.duration - 1));
     saved ??= { rate: v.playbackRate, muted: v.muted };
-    v.playbackRate = 16;
+    v.playbackRate = m.style === 'fast8' ? 8 : 16;
     v.muted = true;
   }
 });

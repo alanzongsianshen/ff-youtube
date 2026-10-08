@@ -109,5 +109,20 @@
   },
   "stRange": {
     "message": "구간은 3초 이상이어야 하고 끝이 시작보다 뒤여야 합니다"
+  },
+  "skipStyle": {
+    "message": "건너뛰기 방식"
+  },
+  "styleJump": {
+    "message": "앞으로 점프"
+  },
+  "styleFast": {
+    "message": "16배속 빨리감기"
+  },
+  "jumpBy": {
+    "message": "점프 간격"
+  },
+  "styleFast8": {
+    "message": "8배속 빨리감기"
   }
 }

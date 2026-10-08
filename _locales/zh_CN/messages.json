@@ -109,5 +109,20 @@
   },
   "stRange": {
     "message": "范围至少 3 秒，且结束须在开始之后"
+  },
+  "skipStyle": {
+    "message": "跳过方式"
+  },
+  "styleJump": {
+    "message": "直接跳转"
+  },
+  "styleFast": {
+    "message": "16 倍速快进"
+  },
+  "jumpBy": {
+    "message": "每次跳转"
+  },
+  "styleFast8": {
+    "message": "8 倍速快进"
   }
 }
