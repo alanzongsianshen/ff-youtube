@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<body style="width:280px;font:13px system-ui;display:grid;gap:8px">
+  <b>FF YouTube</b>
+  <div>Voice to skip: <span id="voice"></span></div>
+  <div id="voices" style="display:grid;gap:6px"></div>
+  <div>Status: <span id="status"></span></div>
+  <label>Threshold <input id="thr" type="range" min="0.5" max="0.99" step="0.01"> <span id="thrv"></span></label>
+  <label>Enroll seconds <input id="sec" type="number" value="20" min="5" max="120" style="width:4em"></label>
+  <button id="enroll">Enroll voice from this tab</button>
+  <button id="start">Start skipping on this tab</button>
+  <button id="stop">Stop</button>
+  <small>Enroll records the tab and splits it into voices; play each sample and pick the one to skip. Voice and threshold changes apply on next Start.</small>
+  <script type="module" src="popup.js"></script>
+</body>

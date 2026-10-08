@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "FF YouTube - skip a speaker",
+  "version": "0.1.0",
+  "description": "Fast-forwards YouTube while an enrolled voice is speaking.",
+  "permissions": ["tabCapture", "offscreen", "storage", "activeTab"],
+  "action": { "default_popup": "popup.html" },
+  "background": { "service_worker": "sw.js" },
+  "content_scripts": [{ "matches": ["https://www.youtube.com/*"], "js": ["content.js"] }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

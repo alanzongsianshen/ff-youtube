@@ -1,0 +1,12 @@
+{
+  "name": "ff-youtube",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/vendor.js",
+    "test": "node test/skipper.test.js && node test/model.check.js"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.1"
+  }
+}
