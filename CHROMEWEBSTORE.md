@@ -16,17 +16,20 @@ Fast-forwards YouTube videos while one person you choose is talking, then return
 Skip one speaker in YouTube videos. Pick a voice once, and the extension fast-forwards through their lines every time they speak.
 
 Features:
-Learns a voice from a short sample of the video you are watching
-Splits the sample into separate voices so you can listen and pick the right one
-Fast-forwards and mutes while that voice is talking, then resumes normal playback
+Learns a voice from a stretch of the video you mark with "Mark start" and "Mark end"
+Splits the sample into separate voices so you can listen, name them, and pick the right one
+Keeps a list of voices across videos; optionally skip several voices at once
+Fast-forwards and mutes while a chosen voice is talking, then resumes normal playback
+Keeps skipping when you move to the next video in the same tab
 Adjustable sensitivity, with a live match score to help you tune it
 All listening happens on your computer; audio is never uploaded
 
 How to use:
 1. Open a YouTube video where the person you want to skip is talking.
-2. Click the extension icon and choose "Enroll from this tab". It listens for a few seconds.
-3. Play each voice sample and click "Skip this voice" on the one you want to skip.
-4. On any YouTube tab, click the icon and choose "Start skipping".
+2. Click the extension icon, then "Mark start" and "Mark end" around a stretch where they speak. Without marks, it records from now for a set number of seconds.
+3. Choose "Enroll voices from range". The video replays that stretch once while the extension listens.
+4. Play each voice sample and tick the one(s) you want to skip. You can rename or delete voices.
+5. On any YouTube tab, click the icon and choose "Start skipping".
 
 Privacy:
 Tab audio is analyzed on your device only. Saved voice samples and settings stay in your browser and are never sent anywhere. The first run downloads a speech model once; after that it works from cache.
@@ -56,7 +59,7 @@ English
 | Small Promo Tile | 440×280 | ⬜ Not created | |
 
 ### Screenshot Notes
-1. YouTube video playing with the popup open: voice cards, one marked "Skipping this voice".
+1. YouTube video playing with the popup open: start/end marks set, voice cards with one ticked.
 2. Popup during skipping: green "listening, score 0.91" status, threshold slider.
 
 ## Permissions Justification
@@ -65,9 +68,10 @@ English
 |------------|------|---------------|
 | tabCapture | permissions | Captures the audio of the YouTube tab the user clicked the icon on, so the extension can hear who is speaking. Capture starts only when the user clicks "Enroll" or "Start skipping" in the popup and stops on "Stop". |
 | offscreen | permissions | Runs the on-device voice matching on the captured tab audio. Background service workers cannot play or process audio streams, so a hidden page is needed for this. |
-| storage | permissions | Saves the user's chosen voice, its short audio samples, and the sensitivity setting locally so they persist between sessions. Nothing is synced or uploaded. |
+| storage | permissions | Saves the user's enrolled voices (names, short audio samples, voice fingerprints), which ones to skip, the marked start/end times, and the sensitivity setting locally so they persist between sessions. Nothing is synced or uploaded. |
+| unlimitedStorage | permissions | Each enrolled voice keeps a short WAV sample (~200 KB) so the user can hear it again. Voices accumulate across enrollments, so the list can outgrow the default 10 MB local storage quota. Data stays local. |
 | activeTab | permissions | Grants temporary access to the tab where the user opened the popup, which is required before that tab's audio can be captured. No access to other tabs. |
-| https://www.youtube.com/* | content_scripts | Changes the video's playback speed and mute state on YouTube pages while the chosen speaker is talking, then restores the original settings. Does not read page content. |
+| https://www.youtube.com/* | content_scripts | Changes the video's playback speed and mute state on YouTube pages while the chosen speaker is talking, then restores the original settings. During enrollment it reads the video's current time for the start/end marks and replays that range once. Does not read page content. |
 
 ## Privacy & Data Use
 
@@ -77,7 +81,8 @@ English
 
 Handled locally only:
 - Tab audio: analyzed in memory to detect the chosen speaker; not recorded beyond the enroll step.
-- Enroll step: up to 4 short voice clips plus numeric voice fingerprints are saved in `chrome.storage.local` so the user can review and pick a voice. They are overwritten on the next enroll and removed when the extension is uninstalled.
+- Enroll step: each enrollment adds up to 4 short voice clips plus numeric voice fingerprints (and optional user-typed names) to `chrome.storage.local` so the user can review and pick voices. They stay until the user deletes them (✕) or uninstalls the extension.
+- Start/end marks: two video timestamps kept in `chrome.storage.session`; cleared when the browser closes.
 
 Network: on first use the extension downloads a public speech model file from Hugging Face (huggingface.co). No user data is sent with that request; it is a plain file download (the user's IP address is visible to Hugging Face, as with any download).
 
@@ -112,7 +117,7 @@ TODO — host a short policy (e.g. GitHub Pages) stating: audio processed on dev
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
-| 0.1.0 | 2026-10-08 | First version: voice enroll, per-voice pick, fast-forward skipping, icon, popup UI, 6 languages. | Draft |
+| 0.1.0 | 2026-10-08 | First version: voice enroll from a marked start/end range, saved voice list (rename, delete, multi-voice skip), fast-forward skipping that follows the tab across videos, icon, popup UI, 6 languages. | Draft |
 
 ## Review Notes
 
