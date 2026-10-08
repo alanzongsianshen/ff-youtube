@@ -11,9 +11,12 @@ In Chrome, open `chrome://extensions`, turn on Developer mode, click **Load unpa
 
 ## Use
 
-1. **Enroll:** open a YouTube video with the target speaking. Click the extension icon, then **Enroll voice from this tab**. It records N seconds and splits the recording into up to 4 voices. The popup shows each voice with a short sample; play them and click **Skip this voice** on the one to skip. The voice with the most speech is picked by default.
+1. **Enroll:** on a YouTube video, click the icon, then **Mark start** and **Mark end** around a stretch where the person speaks. The popup closes when you click the page, but the marks are kept. Without marks, recording starts now and lasts N seconds. **Enroll voices from range** jumps back to the start, plays the range at 1x while recording, and pauses at the end. The recording is split into voices; each one appears with a sample clip, and the one with the most speech is ticked. Enrollments add to the list; ✕ deletes a voice.
+   - **Skip multiple voices** (off by default): when on, you can tick several voices and any of them triggers skipping.
 2. **Skip:** on any YouTube tab, click the icon, then **Start skipping on this tab**. When the voice matches, playback runs at 16x muted for 1.5s. Then it listens 1.5s at 1x and decides again.
 3. Tune **Threshold** using the live score shown in the popup. Same speaker scored about 0.89–0.98 in tests, different speakers about 0.61–0.77.
+
+Enrolled voices and your ticks are saved in the browser and kept across videos and restarts. A running session keeps skipping when you move to the next video in the same tab.
 
 Limits:
 - You must click the icon to start on each tab, because Chrome's tabCapture requires it.

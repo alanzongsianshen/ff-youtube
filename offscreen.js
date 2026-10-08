@@ -4,11 +4,12 @@ import { createSkipper, clusterVoices, concat, rms, SR, WIN, GATE } from './skip
 const MODEL = 'Xenova/wavlm-base-plus-sv';
 const send = (m) => chrome.runtime.sendMessage({ to: 'sw', ...m });
 
-let session = null;
+let session = null, hooks = null; // hooks: begin/finish of a marked-range enrollment
 const end = (text = 'stopped') => { session?.stop(); session = null; send({ type: 'stopped', text }); };
 
 chrome.runtime.onMessage.addListener((m) => {
   if (m.to !== 'offscreen') return;
+  if (m.cmd === 'begin' || m.cmd === 'finish') return hooks?.[m.cmd]();
   start(m).catch((e) => end(`error: ${e.message ?? e}`));
 });
 
@@ -36,7 +37,7 @@ const loadModel = () => (modelP ??= (async () => {
   return async (x) => (await model(await processor(x))).embeddings.data;
 })());
 
-async function start({ cmd, streamId, tabId, target, threshold, seconds }) {
+async function start({ cmd, streamId, tabId, targets, threshold, range }) {
   session?.stop();
   const stream = await navigator.mediaDevices.getUserMedia({
     audio: { mandatory: { chromeMediaSource: 'tab', chromeMediaSourceId: streamId } },
@@ -67,10 +68,14 @@ async function start({ cmd, streamId, tabId, target, threshold, seconds }) {
   if (stopped) return;
 
   if (cmd === 'enroll') {
+    // Capture is live: the content script seeks to the range start ('begin' once the seek lands),
+    // plays at 1x, and sends 'finish' at the end mark or when the user pauses.
     const chunks = [];
-    onChunk = (c) => chunks.push(c);
-    send({ type: 'status', text: `recording ${seconds}s…` });
-    await new Promise((r) => setTimeout(r, seconds * 1000));
+    await new Promise((finish) => {
+      hooks = { begin: () => (onChunk = (c) => chunks.push(c)), finish };
+      send({ type: 'recording', tabId, range });
+    });
+    hooks = null;
     if (stopped) return;
     release();
     const x = concat(chunks), wins = [], vecs = [];
@@ -89,11 +94,11 @@ async function start({ cmd, streamId, tabId, target, threshold, seconds }) {
         clip: wavDataUrl(concat(c.idx.slice(0, 3).map((i) => wins[i]))),
       }));
     send({ type: 'enrolled', voices });
-    return end(`found ${voices.length} voice(s), pick one to skip`);
+    return end(`found ${voices.length} voice(s), tick the one(s) to skip`);
   }
 
   const sk = createSkipper({
-    embed, target, threshold,
+    embed, targets, threshold,
     ff: (on) => send({ type: 'ff', tabId, on }),
     onError: (e) => send({ type: 'status', text: `model error: ${e.message ?? e}` }),
     onScore: (s) => send({ type: 'status', text: s == null ? 'listening (quiet)' : `listening, score ${s.toFixed(2)}` }),

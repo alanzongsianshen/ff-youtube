@@ -18,7 +18,7 @@
     "message": "1 · 錄製聲音"
   },
   "enrollBtn": {
-    "message": "從此分頁錄製"
+    "message": "從標記範圍錄製"
   },
   "sec": {
     "message": "秒"
@@ -36,13 +36,10 @@
     "message": "停止"
   },
   "footer": {
-    "message": "錄製會擷取此分頁的聲音並分成數個人聲；播放每個樣本，選出要跳過的那一個。更換聲音或門檻後，下次按「開始跳過」才會生效。"
+    "message": "標記此人說話的片段（沒標記就從現在開始）。錄製會重播該片段並分成數個人聲；播放每個樣本、命名，再勾選要跳過的聲音。變更在下次按「開始跳過」後生效。"
   },
   "speechSeconds": {
     "message": "$1 秒語音"
-  },
-  "skippingThis": {
-    "message": "✓ 正在跳過這個聲音"
   },
   "skipThis": {
     "message": "跳過這個聲音"
@@ -53,17 +50,14 @@
   "stStopped": {
     "message": "已停止"
   },
-  "stEnrollFirst": {
-    "message": "請先錄製一個聲音"
-  },
   "stReload": {
-    "message": "請重新整理 YouTube 分頁（內容腳本未載入）"
+    "message": "請重新整理 YouTube 分頁"
   },
   "stLoading": {
     "message": "載入模型中…"
   },
   "stRecording": {
-    "message": "錄製中 $1 秒…"
+    "message": "錄製中 $1–$2…"
   },
   "stQuiet": {
     "message": "監聽中（安靜）"
@@ -72,9 +66,48 @@
     "message": "監聽中，分數 $1"
   },
   "stFound": {
-    "message": "找到 $1 個聲音，請選一個要跳過的"
+    "message": "找到 $1 個聲音，請勾選要跳過的"
   },
   "stError": {
     "message": "錯誤：$1"
+  },
+  "markStart": {
+    "message": "標記開始"
+  },
+  "markEnd": {
+    "message": "標記結束"
+  },
+  "clearMarks": {
+    "message": "清除標記"
+  },
+  "noEnd": {
+    "message": "沒標記結束時錄製"
+  },
+  "multi": {
+    "message": "可跳過多個聲音"
+  },
+  "namePh": {
+    "message": "名稱"
+  },
+  "deleteVoice": {
+    "message": "刪除聲音"
+  },
+  "stTickFirst": {
+    "message": "請先勾選要跳過的聲音"
+  },
+  "stNewVideo": {
+    "message": "在新影片上監聽中"
+  },
+  "stCancelled": {
+    "message": "已取消錄製：影片已切換"
+  },
+  "stNoVideo": {
+    "message": "此分頁沒有影片"
+  },
+  "stNoYT": {
+    "message": "這裡沒有 YouTube 影片（重新整理分頁？）"
+  },
+  "stRange": {
+    "message": "範圍至少 3 秒，且結束須在開始之後"
   }
 }

@@ -18,7 +18,7 @@
     "message": "1 · 声を登録"
   },
   "enrollBtn": {
-    "message": "このタブから登録"
+    "message": "範囲から声を登録"
   },
   "sec": {
     "message": "秒"
@@ -36,13 +36,10 @@
     "message": "停止"
   },
   "footer": {
-    "message": "登録するとタブの音声を録音し、話者ごとに分けます。各サンプルを再生して、スキップしたい声を選んでください。声やしきい値の変更は次回の開始時に反映されます。"
+    "message": "その人が話している範囲をマークします（マークなし＝今から）。登録すると範囲を再生して声ごとに分けます。サンプルを聞いて名前を付け、スキップする声にチェックを入れてください。変更は次回の開始時に反映されます。"
   },
   "speechSeconds": {
     "message": "発話 $1 秒"
-  },
-  "skippingThis": {
-    "message": "✓ この声をスキップ中"
   },
   "skipThis": {
     "message": "この声をスキップ"
@@ -53,17 +50,14 @@
   "stStopped": {
     "message": "停止しました"
   },
-  "stEnrollFirst": {
-    "message": "先に声を登録してください"
-  },
   "stReload": {
-    "message": "YouTube タブを再読み込みしてください（コンテンツスクリプト未読み込み）"
+    "message": "YouTube タブを再読み込みしてください"
   },
   "stLoading": {
     "message": "モデルを読み込み中…"
   },
   "stRecording": {
-    "message": "$1 秒間録音中…"
+    "message": "録音中 $1–$2…"
   },
   "stQuiet": {
     "message": "聞き取り中（無音）"
@@ -72,9 +66,48 @@
     "message": "聞き取り中、スコア $1"
   },
   "stFound": {
-    "message": "$1 人の声が見つかりました。スキップする声を選んでください"
+    "message": "$1 人の声が見つかりました。スキップする声にチェックを入れてください"
   },
   "stError": {
     "message": "エラー：$1"
+  },
+  "markStart": {
+    "message": "開始をマーク"
+  },
+  "markEnd": {
+    "message": "終了をマーク"
+  },
+  "clearMarks": {
+    "message": "マークを消去"
+  },
+  "noEnd": {
+    "message": "終了マークなし：録音"
+  },
+  "multi": {
+    "message": "複数の声をスキップ"
+  },
+  "namePh": {
+    "message": "名前"
+  },
+  "deleteVoice": {
+    "message": "声を削除"
+  },
+  "stTickFirst": {
+    "message": "スキップする声にチェックを入れてください"
+  },
+  "stNewVideo": {
+    "message": "新しい動画で待機中"
+  },
+  "stCancelled": {
+    "message": "登録を中止しました：動画が切り替わりました"
+  },
+  "stNoVideo": {
+    "message": "このタブに動画がありません"
+  },
+  "stNoYT": {
+    "message": "YouTube 動画がありません（タブを再読み込み？）"
+  },
+  "stRange": {
+    "message": "範囲は 3 秒以上で、終了は開始より後にしてください"
   }
 }

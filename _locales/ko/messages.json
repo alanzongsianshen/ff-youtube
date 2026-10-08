@@ -18,7 +18,7 @@
     "message": "1 · 목소리 등록"
   },
   "enrollBtn": {
-    "message": "이 탭에서 등록"
+    "message": "구간에서 목소리 등록"
   },
   "sec": {
     "message": "초"
@@ -36,13 +36,10 @@
     "message": "중지"
   },
   "footer": {
-    "message": "등록하면 탭 소리를 녹음해 목소리별로 나눕니다. 각 샘플을 재생하고 건너뛸 목소리를 고르세요. 목소리와 임계값 변경은 다음 시작 때 적용됩니다."
+    "message": "그 사람이 말하는 구간을 표시하세요(표시 없음 = 지금부터). 등록하면 구간을 다시 재생해 목소리별로 나눕니다. 샘플을 듣고 이름을 붙인 뒤 건너뛸 목소리에 체크하세요. 변경 사항은 다음 시작 때 적용됩니다."
   },
   "speechSeconds": {
     "message": "음성 $1초"
-  },
-  "skippingThis": {
-    "message": "✓ 이 목소리 건너뛰는 중"
   },
   "skipThis": {
     "message": "이 목소리 건너뛰기"
@@ -53,17 +50,14 @@
   "stStopped": {
     "message": "중지됨"
   },
-  "stEnrollFirst": {
-    "message": "먼저 목소리를 등록하세요"
-  },
   "stReload": {
-    "message": "YouTube 탭을 새로고침하세요 (콘텐츠 스크립트 없음)"
+    "message": "YouTube 탭을 새로고침하세요"
   },
   "stLoading": {
     "message": "모델 불러오는 중…"
   },
   "stRecording": {
-    "message": "$1초 녹음 중…"
+    "message": "녹음 중 $1–$2…"
   },
   "stQuiet": {
     "message": "듣는 중 (조용함)"
@@ -72,9 +66,48 @@
     "message": "듣는 중, 점수 $1"
   },
   "stFound": {
-    "message": "목소리 $1개를 찾았습니다. 건너뛸 목소리를 고르세요"
+    "message": "목소리 $1개를 찾았습니다. 건너뛸 목소리를 체크하세요"
   },
   "stError": {
     "message": "오류: $1"
+  },
+  "markStart": {
+    "message": "시작 표시"
+  },
+  "markEnd": {
+    "message": "끝 표시"
+  },
+  "clearMarks": {
+    "message": "표시 지우기"
+  },
+  "noEnd": {
+    "message": "끝 표시가 없으면 녹음"
+  },
+  "multi": {
+    "message": "여러 목소리 건너뛰기"
+  },
+  "namePh": {
+    "message": "이름"
+  },
+  "deleteVoice": {
+    "message": "목소리 삭제"
+  },
+  "stTickFirst": {
+    "message": "건너뛸 목소리를 먼저 체크하세요"
+  },
+  "stNewVideo": {
+    "message": "새 동영상에서 듣는 중"
+  },
+  "stCancelled": {
+    "message": "등록 취소됨: 동영상이 바뀌었습니다"
+  },
+  "stNoVideo": {
+    "message": "이 탭에 동영상이 없습니다"
+  },
+  "stNoYT": {
+    "message": "여기에 YouTube 동영상이 없습니다(탭을 새로고침?)"
+  },
+  "stRange": {
+    "message": "구간은 3초 이상이어야 하고 끝이 시작보다 뒤여야 합니다"
   }
 }

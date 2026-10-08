@@ -34,9 +34,13 @@ export function clusterVoices(vecs) {
   return cs.sort((a, b) => b.idx.length - a.idx.length);
 }
 
+// Ticks voice `id` on/off. Ticks are exclusive unless multi-voice mode is on.
+export const tick = (voices, id, on, multi) => voices.map((v) => ({ ...v, skip: v.id === id ? on : multi && v.skip }));
+
 // Burst/probe loop: fast-forwarding mutes the tab, so the detector is deaf during a burst.
 // On match: ff(true) for burstMs, then ff(false) and listen to a fresh window at 1x before deciding again.
-export function createSkipper({ embed, target, threshold, ff, onScore = () => {}, onError = () => {}, burstMs = 1500 }) {
+// targets: one embedding per voice to skip; the closest one decides.
+export function createSkipper({ embed, targets, threshold, ff, onScore = () => {}, onError = () => {}, burstMs = 1500 }) {
   let chunks = [], len = 0, bursting = false, busy = false, stopped = false, timer;
   return {
     async push(chunk) {
@@ -47,7 +51,7 @@ export function createSkipper({ embed, target, threshold, ff, onScore = () => {}
       if (rms(x) < GATE) return onScore(null);
       busy = true;
       let score;
-      try { score = cos(await embed(x), target); } catch (e) { return onError(e); } finally { busy = false; }
+      try { const e = await embed(x); score = Math.max(...targets.map((t) => cos(e, t))); } catch (e) { return onError(e); } finally { busy = false; }
       if (stopped) return;
       onScore(score);
       if (score < threshold) return;

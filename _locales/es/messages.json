@@ -18,7 +18,7 @@
     "message": "1 · Registrar una voz"
   },
   "enrollBtn": {
-    "message": "Registrar desde esta pestaña"
+    "message": "Registrar voces del rango"
   },
   "sec": {
     "message": "s"
@@ -36,13 +36,10 @@
     "message": "Detener"
   },
   "footer": {
-    "message": "El registro graba la pestaña y la separa en voces; reproduce cada muestra y elige la que quieres saltar. Los cambios de voz y umbral se aplican al volver a empezar."
+    "message": "Marca un tramo donde habla la persona (sin marcas = desde ahora). El registro lo reproduce y lo separa en voces; escucha cada muestra, ponle nombre y marca la(s) que quieres saltar. Los cambios se aplican al volver a empezar."
   },
   "speechSeconds": {
     "message": "$1 s de voz"
-  },
-  "skippingThis": {
-    "message": "✓ Saltando esta voz"
   },
   "skipThis": {
     "message": "Saltar esta voz"
@@ -53,17 +50,14 @@
   "stStopped": {
     "message": "detenido"
   },
-  "stEnrollFirst": {
-    "message": "Primero registra una voz"
-  },
   "stReload": {
-    "message": "Recarga la pestaña de YouTube (falta el script de contenido)"
+    "message": "Recarga la pestaña de YouTube"
   },
   "stLoading": {
     "message": "Cargando modelo…"
   },
   "stRecording": {
-    "message": "Grabando $1 s…"
+    "message": "Grabando $1–$2…"
   },
   "stQuiet": {
     "message": "Escuchando (silencio)"
@@ -72,9 +66,48 @@
     "message": "Escuchando, puntuación $1"
   },
   "stFound": {
-    "message": "Se encontraron $1 voces, elige una para saltar"
+    "message": "Se encontraron $1 voces, marca la(s) que quieres saltar"
   },
   "stError": {
     "message": "Error: $1"
+  },
+  "markStart": {
+    "message": "Marcar inicio"
+  },
+  "markEnd": {
+    "message": "Marcar fin"
+  },
+  "clearMarks": {
+    "message": "Borrar marcas"
+  },
+  "noEnd": {
+    "message": "Sin marca de fin: grabar"
+  },
+  "multi": {
+    "message": "Saltar varias voces"
+  },
+  "namePh": {
+    "message": "nombre"
+  },
+  "deleteVoice": {
+    "message": "Eliminar voz"
+  },
+  "stTickFirst": {
+    "message": "Marca primero una voz para saltar"
+  },
+  "stNewVideo": {
+    "message": "Escuchando en el nuevo vídeo"
+  },
+  "stCancelled": {
+    "message": "Registro cancelado: cambió el vídeo"
+  },
+  "stNoVideo": {
+    "message": "No hay vídeo en esta pestaña"
+  },
+  "stNoYT": {
+    "message": "No hay vídeo de YouTube aquí (¿recargar la pestaña?)"
+  },
+  "stRange": {
+    "message": "El rango debe durar al menos 3 s y terminar después de empezar"
   }
 }
