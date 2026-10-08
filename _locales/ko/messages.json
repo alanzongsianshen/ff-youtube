@@ -1,0 +1,80 @@
+{
+  "extName": {
+    "message": "Hush Skip for YouTube"
+  },
+  "extDesc": {
+    "message": "선택한 사람이 말하는 동안 YouTube를 빨리 감기합니다."
+  },
+  "skipping": {
+    "message": "건너뛸 목소리:"
+  },
+  "none": {
+    "message": "없음"
+  },
+  "voiceN": {
+    "message": "목소리 $1"
+  },
+  "enrollHeading": {
+    "message": "1 · 목소리 등록"
+  },
+  "enrollBtn": {
+    "message": "이 탭에서 등록"
+  },
+  "sec": {
+    "message": "초"
+  },
+  "skipHeading": {
+    "message": "2 · 건너뛰기"
+  },
+  "threshold": {
+    "message": "임계값"
+  },
+  "start": {
+    "message": "건너뛰기 시작"
+  },
+  "stop": {
+    "message": "중지"
+  },
+  "footer": {
+    "message": "등록하면 탭 소리를 녹음해 목소리별로 나눕니다. 각 샘플을 재생하고 건너뛸 목소리를 고르세요. 목소리와 임계값 변경은 다음 시작 때 적용됩니다."
+  },
+  "speechSeconds": {
+    "message": "음성 $1초"
+  },
+  "skippingThis": {
+    "message": "✓ 이 목소리 건너뛰는 중"
+  },
+  "skipThis": {
+    "message": "이 목소리 건너뛰기"
+  },
+  "stIdle": {
+    "message": "대기 중"
+  },
+  "stStopped": {
+    "message": "중지됨"
+  },
+  "stEnrollFirst": {
+    "message": "먼저 목소리를 등록하세요"
+  },
+  "stReload": {
+    "message": "YouTube 탭을 새로고침하세요 (콘텐츠 스크립트 없음)"
+  },
+  "stLoading": {
+    "message": "모델 불러오는 중…"
+  },
+  "stRecording": {
+    "message": "$1초 녹음 중…"
+  },
+  "stQuiet": {
+    "message": "듣는 중 (조용함)"
+  },
+  "stScore": {
+    "message": "듣는 중, 점수 $1"
+  },
+  "stFound": {
+    "message": "목소리 $1개를 찾았습니다. 건너뛸 목소리를 고르세요"
+  },
+  "stError": {
+    "message": "오류: $1"
+  }
+}

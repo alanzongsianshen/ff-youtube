@@ -1,4 +1,4 @@
-# FF YouTube
+# Hush Skip for YouTube (跳過他說話)
 
 Chrome extension (MV3). It fast-forwards YouTube while an enrolled voice is speaking. Detection runs in the browser with WavLM speaker embeddings (transformers.js / onnxruntime-web). It uses WebGPU when available and falls back to wasm q8.
 

@@ -1,0 +1,80 @@
+{
+  "extName": {
+    "message": "Hush Skip for YouTube"
+  },
+  "extDesc": {
+    "message": "選んだ人が話している間、YouTube を早送りします。"
+  },
+  "skipping": {
+    "message": "スキップ対象："
+  },
+  "none": {
+    "message": "なし"
+  },
+  "voiceN": {
+    "message": "音声 $1"
+  },
+  "enrollHeading": {
+    "message": "1 · 声を登録"
+  },
+  "enrollBtn": {
+    "message": "このタブから登録"
+  },
+  "sec": {
+    "message": "秒"
+  },
+  "skipHeading": {
+    "message": "2 · スキップ"
+  },
+  "threshold": {
+    "message": "しきい値"
+  },
+  "start": {
+    "message": "スキップ開始"
+  },
+  "stop": {
+    "message": "停止"
+  },
+  "footer": {
+    "message": "登録するとタブの音声を録音し、話者ごとに分けます。各サンプルを再生して、スキップしたい声を選んでください。声やしきい値の変更は次回の開始時に反映されます。"
+  },
+  "speechSeconds": {
+    "message": "発話 $1 秒"
+  },
+  "skippingThis": {
+    "message": "✓ この声をスキップ中"
+  },
+  "skipThis": {
+    "message": "この声をスキップ"
+  },
+  "stIdle": {
+    "message": "待機中"
+  },
+  "stStopped": {
+    "message": "停止しました"
+  },
+  "stEnrollFirst": {
+    "message": "先に声を登録してください"
+  },
+  "stReload": {
+    "message": "YouTube タブを再読み込みしてください（コンテンツスクリプト未読み込み）"
+  },
+  "stLoading": {
+    "message": "モデルを読み込み中…"
+  },
+  "stRecording": {
+    "message": "$1 秒間録音中…"
+  },
+  "stQuiet": {
+    "message": "聞き取り中（無音）"
+  },
+  "stScore": {
+    "message": "聞き取り中、スコア $1"
+  },
+  "stFound": {
+    "message": "$1 人の声が見つかりました。スキップする声を選んでください"
+  },
+  "stError": {
+    "message": "エラー：$1"
+  }
+}

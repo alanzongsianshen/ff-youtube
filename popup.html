@@ -1,5 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
+<title>Hush Skip</title>
 <style>
   :root {
     color-scheme: light dark;
@@ -51,30 +52,30 @@
 <body>
   <header>
     <img src="icons/icon48.png" alt="">
-    <div><b>FF YouTube</b><small>Skipping: <span id="voice"></span></small></div>
+    <div><b data-i18n="extName"></b><small><span data-i18n="skipping"></span> <span id="voice"></span></small></div>
   </header>
 
   <div class="status" id="statusbox"><span class="dot"></span><span id="status"></span></div>
 
   <section>
-    <h2>1 · Enroll a voice</h2>
+    <h2 data-i18n="enrollHeading"></h2>
     <div class="row">
-      <button id="enroll">Enroll from this tab</button>
-      <label class="muted"><input id="sec" type="number" value="20" min="5" max="120"> sec</label>
+      <button id="enroll" data-i18n="enrollBtn"></button>
+      <label class="muted"><input id="sec" type="number" value="20" min="5" max="120"> <span data-i18n="sec"></span></label>
     </div>
     <div id="voices"></div>
   </section>
 
   <section>
-    <h2>2 · Skip</h2>
-    <label class="row"><span>Threshold</span><b id="thrv"></b></label>
+    <h2 data-i18n="skipHeading"></h2>
+    <label class="row"><span data-i18n="threshold"></span><b id="thrv"></b></label>
     <input id="thr" type="range" min="0.5" max="0.99" step="0.01">
     <div class="row">
-      <button id="start" class="primary">Start skipping</button>
-      <button id="stop">Stop</button>
+      <button id="start" class="primary" data-i18n="start"></button>
+      <button id="stop" data-i18n="stop"></button>
     </div>
   </section>
 
-  <footer>Enroll records the tab and splits it into voices; play each sample and pick the one to skip. Voice and threshold changes apply on next Start.</footer>
+  <footer data-i18n="footer"></footer>
   <script type="module" src="popup.js"></script>
 </body>
