@@ -1,0 +1,80 @@
+{
+  "extName": {
+    "message": "Hush Skip for YouTube"
+  },
+  "extDesc": {
+    "message": "Fast-forwards YouTube while a voice you pick is speaking."
+  },
+  "skipping": {
+    "message": "Skipping:"
+  },
+  "none": {
+    "message": "none"
+  },
+  "voiceN": {
+    "message": "Voice $1"
+  },
+  "enrollHeading": {
+    "message": "1 · Enroll a voice"
+  },
+  "enrollBtn": {
+    "message": "Enroll from this tab"
+  },
+  "sec": {
+    "message": "sec"
+  },
+  "skipHeading": {
+    "message": "2 · Skip"
+  },
+  "threshold": {
+    "message": "Threshold"
+  },
+  "start": {
+    "message": "Start skipping"
+  },
+  "stop": {
+    "message": "Stop"
+  },
+  "footer": {
+    "message": "Enroll records the tab and splits it into voices; play each sample and pick the one to skip. Voice and threshold changes apply on next Start."
+  },
+  "speechSeconds": {
+    "message": "$1s of speech"
+  },
+  "skippingThis": {
+    "message": "✓ Skipping this voice"
+  },
+  "skipThis": {
+    "message": "Skip this voice"
+  },
+  "stIdle": {
+    "message": "idle"
+  },
+  "stStopped": {
+    "message": "stopped"
+  },
+  "stEnrollFirst": {
+    "message": "Enroll a voice first"
+  },
+  "stReload": {
+    "message": "Reload the YouTube tab (content script missing)"
+  },
+  "stLoading": {
+    "message": "Loading model…"
+  },
+  "stRecording": {
+    "message": "Recording $1s…"
+  },
+  "stQuiet": {
+    "message": "Listening (quiet)"
+  },
+  "stScore": {
+    "message": "Listening, score $1"
+  },
+  "stFound": {
+    "message": "Found $1 voice(s), pick one to skip"
+  },
+  "stError": {
+    "message": "Error: $1"
+  }
+}

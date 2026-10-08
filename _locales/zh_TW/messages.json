@@ -1,0 +1,80 @@
+{
+  "extName": {
+    "message": "跳過他說話"
+  },
+  "extDesc": {
+    "message": "你選的人一開口，YouTube 就自動快轉。"
+  },
+  "skipping": {
+    "message": "跳過："
+  },
+  "none": {
+    "message": "未設定"
+  },
+  "voiceN": {
+    "message": "聲音 $1"
+  },
+  "enrollHeading": {
+    "message": "1 · 錄製聲音"
+  },
+  "enrollBtn": {
+    "message": "從此分頁錄製"
+  },
+  "sec": {
+    "message": "秒"
+  },
+  "skipHeading": {
+    "message": "2 · 跳過"
+  },
+  "threshold": {
+    "message": "靈敏度門檻"
+  },
+  "start": {
+    "message": "開始跳過"
+  },
+  "stop": {
+    "message": "停止"
+  },
+  "footer": {
+    "message": "錄製會擷取此分頁的聲音並分成數個人聲；播放每個樣本，選出要跳過的那一個。更換聲音或門檻後，下次按「開始跳過」才會生效。"
+  },
+  "speechSeconds": {
+    "message": "$1 秒語音"
+  },
+  "skippingThis": {
+    "message": "✓ 正在跳過這個聲音"
+  },
+  "skipThis": {
+    "message": "跳過這個聲音"
+  },
+  "stIdle": {
+    "message": "待機"
+  },
+  "stStopped": {
+    "message": "已停止"
+  },
+  "stEnrollFirst": {
+    "message": "請先錄製一個聲音"
+  },
+  "stReload": {
+    "message": "請重新整理 YouTube 分頁（內容腳本未載入）"
+  },
+  "stLoading": {
+    "message": "載入模型中…"
+  },
+  "stRecording": {
+    "message": "錄製中 $1 秒…"
+  },
+  "stQuiet": {
+    "message": "監聽中（安靜）"
+  },
+  "stScore": {
+    "message": "監聽中，分數 $1"
+  },
+  "stFound": {
+    "message": "找到 $1 個聲音，請選一個要跳過的"
+  },
+  "stError": {
+    "message": "錯誤：$1"
+  }
+}

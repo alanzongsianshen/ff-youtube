@@ -1,0 +1,80 @@
+{
+  "extName": {
+    "message": "Hush Skip for YouTube"
+  },
+  "extDesc": {
+    "message": "Adelanta YouTube mientras habla la voz que elijas."
+  },
+  "skipping": {
+    "message": "Saltando:"
+  },
+  "none": {
+    "message": "ninguna"
+  },
+  "voiceN": {
+    "message": "Voz $1"
+  },
+  "enrollHeading": {
+    "message": "1 · Registrar una voz"
+  },
+  "enrollBtn": {
+    "message": "Registrar desde esta pestaña"
+  },
+  "sec": {
+    "message": "s"
+  },
+  "skipHeading": {
+    "message": "2 · Saltar"
+  },
+  "threshold": {
+    "message": "Umbral"
+  },
+  "start": {
+    "message": "Empezar a saltar"
+  },
+  "stop": {
+    "message": "Detener"
+  },
+  "footer": {
+    "message": "El registro graba la pestaña y la separa en voces; reproduce cada muestra y elige la que quieres saltar. Los cambios de voz y umbral se aplican al volver a empezar."
+  },
+  "speechSeconds": {
+    "message": "$1 s de voz"
+  },
+  "skippingThis": {
+    "message": "✓ Saltando esta voz"
+  },
+  "skipThis": {
+    "message": "Saltar esta voz"
+  },
+  "stIdle": {
+    "message": "inactivo"
+  },
+  "stStopped": {
+    "message": "detenido"
+  },
+  "stEnrollFirst": {
+    "message": "Primero registra una voz"
+  },
+  "stReload": {
+    "message": "Recarga la pestaña de YouTube (falta el script de contenido)"
+  },
+  "stLoading": {
+    "message": "Cargando modelo…"
+  },
+  "stRecording": {
+    "message": "Grabando $1 s…"
+  },
+  "stQuiet": {
+    "message": "Escuchando (silencio)"
+  },
+  "stScore": {
+    "message": "Escuchando, puntuación $1"
+  },
+  "stFound": {
+    "message": "Se encontraron $1 voces, elige una para saltar"
+  },
+  "stError": {
+    "message": "Error: $1"
+  }
+}
