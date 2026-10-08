@@ -1,25 +1,31 @@
 const $ = (id) => document.getElementById(id);
 
+// Status is free text from sw.js/offscreen.js; map it to a dot color.
+const stateOf = (s) =>
+  /^listening/.test(s) ? 'live' : /^(recording|loading)/.test(s) ? 'busy' : /error|reload|first|captur/i.test(s) ? 'error' : 'idle';
+
 async function show() {
   const { target, picked = 0, threshold = 0.85 } = await chrome.storage.local.get(['target', 'picked', 'threshold']);
   const { status = 'idle' } = await chrome.storage.session.get('status');
   $('voice').textContent = target ? `voice ${picked + 1}` : 'none';
   $('status').textContent = status;
+  $('statusbox').dataset.state = stateOf(status);
   $('thr').value = threshold;
   $('thrv').textContent = (+threshold).toFixed(2);
 }
 async function showVoices() {
   const { voices = [], picked = 0 } = await chrome.storage.local.get(['voices', 'picked']);
   $('voices').replaceChildren(...voices.map((v, i) => {
-    const row = document.createElement('div');
+    const row = Object.assign(document.createElement('div'), { className: i === picked ? 'voice picked' : 'voice' });
+    const title = document.createElement('div');
+    title.innerHTML = `<b>Voice ${i + 1}</b> <span class="muted">· ${v.seconds}s of speech</span>`;
     const audio = Object.assign(document.createElement('audio'), { controls: true, src: v.clip });
-    audio.style.cssText = 'width:100%;height:28px';
     const btn = Object.assign(document.createElement('button'), {
-      textContent: i === picked ? '✓ skipping this voice' : 'Skip this voice',
+      textContent: i === picked ? '✓ Skipping this voice' : 'Skip this voice',
       disabled: i === picked,
       onclick: () => chrome.storage.local.set({ picked: i, target: v.embedding }),
     });
-    row.append(`Voice ${i + 1} · ${v.seconds}s of speech`, audio, btn);
+    row.append(title, audio, btn);
     return row;
   }));
 }
@@ -41,6 +47,7 @@ async function run(cmd) {
     chrome.runtime.sendMessage({ to: 'sw', cmd, tabId: tab.id, streamId, seconds: +$('sec').value });
   } catch (e) {
     $('status').textContent = e.message; // e.g. tab already captured: press Stop first
+    $('statusbox').dataset.state = 'error';
   }
 }
 $('enroll').onclick = () => run('enroll');
