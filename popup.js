@@ -8,6 +8,8 @@ const activeTab = async () => (await chrome.tabs.query({ active: true, currentWi
 const videoTime = (tab) => chrome.tabs.sendMessage(tab.id, { type: 'time' });
 const toSw = (m) => chrome.runtime.sendMessage({ to: 'sw', ...m }); // sw.js is the only writer of voices
 const voiceName = (v) => v.name ?? t('voiceN', [v.id]);
+// Enrollment replays the range at 1x and buffers it in the offscreen doc (~64 KB/s); cap long or mistaken ranges.
+const MAX_ENROLL = 120;
 
 // sw.js/offscreen.js emit English status text (offscreen docs have no chrome.i18n); translate known patterns here.
 const STATUS = [
@@ -35,10 +37,12 @@ const fail = (msg) => {
 async function show() {
   const { voices = [], threshold = 0.85, multi = false, style = 'jump', jump = 10 } =
     await chrome.storage.local.get(['voices', 'threshold', 'multi', 'style', 'jump']);
-  const { status = 'idle', marks = {} } = await chrome.storage.session.get(['status', 'marks']);
+  const { status = 'idle', marks = {}, tabId } = await chrome.storage.session.get(['status', 'marks', 'tabId']);
   const ticked = voices.filter((v) => v.skip).map(voiceName);
   $('voice').textContent = ticked.length ? ticked.join(', ') : t('none');
-  $('status').textContent = translate(status);
+  // One session at a time: Start/Enroll here would stop the one running in the other tab.
+  const elsewhere = /live|busy/.test(stateOf(status)) && tabId !== (await activeTab())?.id;
+  $('status').textContent = translate(status) + (elsewhere ? ` · ${t('otherTab')}` : '');
   $('statusbox').dataset.state = stateOf(status);
   $('thr').value = threshold;
   $('thrv').textContent = (+threshold).toFixed(2);
@@ -100,7 +104,7 @@ async function run(cmd) {
     if (cmd === 'enroll') {
       const { marks = {} } = await chrome.storage.session.get('marks');
       const start = marks.start ?? (await videoTime(tab));
-      const end = marks.end ?? start + +$('sec').value;
+      const end = Math.min(marks.end ?? start + +$('sec').value, start + MAX_ENROLL);
       if (!(end - start >= 3)) throw new Error(t('stRange'));
       range = { start, end };
     }

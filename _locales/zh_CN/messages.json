@@ -124,5 +124,8 @@
   },
   "styleFast8": {
     "message": "8 倍速快进"
+  },
+  "otherTab": {
+    "message": "正在其他标签页运行"
   }
 }

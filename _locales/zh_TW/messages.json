@@ -124,5 +124,8 @@
   },
   "styleFast8": {
     "message": "8 倍速快轉"
+  },
+  "otherTab": {
+    "message": "正在其他分頁執行"
   }
 }

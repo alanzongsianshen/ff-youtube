@@ -124,5 +124,8 @@
   },
   "styleFast8": {
     "message": "8倍速早送り"
+  },
+  "otherTab": {
+    "message": "別のタブで実行中"
   }
 }

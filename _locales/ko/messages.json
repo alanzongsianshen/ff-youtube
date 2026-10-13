@@ -124,5 +124,8 @@
   },
   "styleFast8": {
     "message": "8배속 빨리감기"
+  },
+  "otherTab": {
+    "message": "다른 탭에서 실행 중"
   }
 }

@@ -124,5 +124,8 @@
   },
   "styleFast8": {
     "message": "Fast-forward 8×"
+  },
+  "otherTab": {
+    "message": "running on another tab"
   }
 }
