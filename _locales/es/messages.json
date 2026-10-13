@@ -124,5 +124,8 @@
   },
   "styleFast8": {
     "message": "Avance rápido 8×"
+  },
+  "otherTab": {
+    "message": "activo en otra pestaña"
   }
 }
